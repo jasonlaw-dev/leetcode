@@ -5,6 +5,7 @@
  * 
  * Time: O(n)
  * Space: O(1)
+ * NOTE: use a dummy head so that we do not need extra handling of nulls
  */
 
 class ListNode {
@@ -25,23 +26,15 @@ class ListNode {
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode head = null;
-        ListNode tail = null;
+        ListNode head = new ListNode(0);
+        ListNode tail = head;
 
         ListNode curr1 = l1;
         ListNode curr2 = l2;
 
         while (true) {
-            if (curr1 == null && curr2 == null) {
-                break;
-            }
             if (curr1 == null || curr2 == null) {
-                ListNode nonNull = curr1 != null ? curr1 : curr2;
-                if (tail == null) {
-                    head = nonNull;
-                    break;
-                }
-                tail.next = nonNull;
+                tail.next = curr1 != null ? curr1 : curr2;
                 break;
             }
             ListNode smaller;
@@ -52,16 +45,11 @@ class Solution {
                 smaller = curr2;
                 curr2 = curr2.next;
             }
-            if (tail == null) {
-                head = smaller;
-                tail = smaller;
-            } else {
-                tail.next = smaller;
-                tail = smaller;
-            }
+            tail.next = smaller;
+            tail = smaller;
         }
 
-        return head;
+        return head.next;
     }
 }
 // @lc code=end
