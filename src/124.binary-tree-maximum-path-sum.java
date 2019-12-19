@@ -4,7 +4,7 @@
  * [124] Binary Tree Maximum Path Sum
  */
 
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;

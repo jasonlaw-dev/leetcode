@@ -7,7 +7,7 @@ import java.util.List;
  * [103] Binary Tree Zigzag Level Order Traversal
  */
 
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
