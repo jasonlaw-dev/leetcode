@@ -1,3 +1,7 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 /*
  * @lc app=leetcode id=116 lang=java
  *
@@ -49,7 +53,29 @@ class Node {
 */
 class Solution {
     public Node connect(Node root) {
-        
+        Queue<Node> queue = new LinkedList<>();
+        if (root == null) {
+            return null;
+        }
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+            Node prev = null;
+            for (int i = 0; i < levelSize; i++) {
+                Node curr = queue.poll();
+                if (prev != null) {
+                    prev.next = curr;
+                }
+                prev = curr;
+                if (curr.left != null) {
+                    queue.offer(curr.left);
+                }
+                if (curr.right != null) {
+                    queue.offer(curr.right);
+                }
+            }
+        }
+        return root;
     }
 }
 // @lc code=end
