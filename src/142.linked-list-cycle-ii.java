@@ -22,6 +22,7 @@ class ListNode {
  *     }
  * }
  */
+//https://en.wikipedia.org/wiki/Cycle_detection
 class Solution {
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) return null;
