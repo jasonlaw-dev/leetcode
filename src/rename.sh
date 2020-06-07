@@ -12,7 +12,6 @@ do
       num=$(( $num + 1 ))
       mv "$filename" "$filenameNew"
     fi
-    ## This is all we needed to know, so we can break after the first iteration
     break
   done
 done
