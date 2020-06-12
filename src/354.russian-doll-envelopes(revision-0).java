@@ -6,6 +6,8 @@ import java.util.Arrays;
  * [354] Russian Doll Envelopes
  */
 
+
+ // [1,2],[2,4],[2,3]
 // @lc code=start
 class Solution {
     public int maxEnvelopes(int[][] envelopes) {
