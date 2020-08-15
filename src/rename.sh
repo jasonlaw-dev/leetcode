@@ -1,10 +1,11 @@
 #!/bin/bash
 num=0
-for filename in $(ls | grep -v "(" | grep "java$")
+for filename in $(ls | grep -v "(" | grep -E "(java|cpp)$")
 do
   #echo $filename
-  filenameNew="${filename/.java/(revision-0).java}"
-  filenameToSearch="${filename/.java/(*).java}"
+  extension="${filename##*.}"
+  filenameNew="${filename/.${extension}/(revision-0).${extension}}"
+  filenameToSearch="${filename/.${extension}/(*).${extension}}"
   for f in $filenameToSearch; do
     if [ -f "$f" ]; then
       echo "Skipping $filename"
