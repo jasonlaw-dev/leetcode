@@ -1,6 +1,6 @@
 #!/bin/bash
 num=0
-for filename in $(ls | grep -v "(" | grep -E "(java|cpp)$")
+for filename in $(ls | grep -v "(" | grep -E "(java|cpp|py)$")
 do
   #echo $filename
   extension="${filename##*.}"
